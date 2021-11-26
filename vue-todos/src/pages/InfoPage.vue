@@ -1,7 +1,7 @@
 <template>
   <div class="info">
       <div id="photo">
-        <img align="top" src="../assets/photo.jpg">      
+        <img align="top" src="../assets/photo.jpg" style="border-radius: 50px">      
       </div>
     <InfoCard/>
     <FormCard/>

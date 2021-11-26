@@ -43,7 +43,7 @@ export default {
     color: white;
     text-decoration: underline;
 }
-.router-link-active{
+.router-link-exact-active{
     color: aquamarine;
 }
 </style>
