@@ -1,0 +1,262 @@
+
+* {
+  box-sizing: border-box;
+}
+
+h2 {
+    margin: 0;
+}
+
+body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: #232B2B;
+}
+
+#app {
+font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 120px 20px 40px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.page-title {
+  font-size: 32px;
+  color: #E3AE57;
+  font-weight: 600;
+}
+
+.card {
+  border: black 4px groove;
+  background-color: rgb(118, 228, 222);
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+
+.page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.base-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+  .auth-form {
+      background-color: #B94629;
+      border-radius: 20px;
+      width: 100%;
+      min-height: 300px;
+      padding: 32px 24px;
+      box-shadow: 0 0 10px black;
+  }
+
+  .registration-form {
+    background-color: #B94629;
+    border-radius: 20px;
+    width: 100%;
+    min-height: 300px;
+    padding: 32px 24px;
+    box-shadow: 0 0 10px black;
+  }
+
+  .form-field {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 550;
+      gap: 16px;
+  }
+
+.create-todo {
+  width: 100%;
+  background: #B94629;
+  padding: 15px;
+  margin: 20px auto;
+    font-size: 14pt;
+    border-radius: 8px;
+    box-shadow: 0 0 4px black;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      font-size: 18px;
+      font-weight: 550;
+      gap: 20px;
+}
+
+.create-todo input {
+  border: 1px solid #FFFFFF;
+  padding: 12px 230px;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+.create-todo button {
+      padding: 10px 30px;
+      background: #232B2B;
+      color: #E3AE57;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+}
+
+  .form-field input {
+      border: 1px solid #FFFFFF;
+      padding: 12px 24px;
+      font-size: 12px;
+      border-radius: 12px;
+  }
+
+  .submit-btn {
+      margin-top: 32px;
+      padding: 12px 32px;
+      background: #232B2B;
+      color: #E3AE57;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+  }
+
+  .auth-form .action-link {
+      margin-top: 16px;
+  }
+
+  .link-btn {
+    height: 32px;
+    width: 200px;
+    margin: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .todo-list {
+    display: flex;
+    flex-flow: column;
+    align-items: left;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .todo-item {
+    display: flex;
+    display: inline-grid;
+    grid-auto-flow: column;
+  }
+  .separator {
+    width: 100%;
+  }
+
+  ul {
+      margin: 0;
+      padding: 0;
+  }
+
+  li {
+      background: #B94629;
+      margin: 10px;
+      font-size: 14pt;
+      border-radius: 8px;
+      list-style-type: none;
+      box-shadow: 0 0 4px black;
+  }
+
+
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #B94629;
+    box-shadow: 0 0 20px black;
+    z-index: 1;
+  }
+.link-wrapper {
+    margin: auto 0;
+    height: 100%;
+    width: 100%;
+    padding: 12px 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: left;
+    gap: 20px;
+  }
+  .nav-links {
+    padding: 10px;
+    cursor: pointer;
+  }
+.nav-link {
+    color: #ffffff;
+    margin-left: 100px;
+    margin-right: 50px;
+    font-size: 23px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgb(48, 48, 48);
+}
+.nav-link:hover {
+    color: #cfcfcf;
+    text-decoration: underline;
+}
+.router-link-exact-active{
+    color: #cfcfcf;
+}
+
+.logout {
+    cursor: pointer;
+    margin-right: 150px;
+  }
+
+  .todo-item .title {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .todo-item .checkbox {
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border: 1 px solid #abd5bd;
+    border-radius: 12px;
+  }
+
+  .todo-item button {
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    background: red;
+    color: white;
+    border-radius: 2px;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .todo-item.done {
+    opacity: 0.7;
+  }
+
+  .todo-item.done .title {
+    text-decoration: line-through;
+  }

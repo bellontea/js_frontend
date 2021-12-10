@@ -1,29 +1,28 @@
 <template>
   <div id="app">
-    <Nav/>
-    <router-view/>
+    <component :is="layout">
+      <router-view/>
+    </component>
   </div>
 </template>
 
 <script>
-import Nav from '@/components/Navigation.vue'
+import MainLayout from '@/layouts/MainLayout';
+import AuthLayout from '@/layouts/AuthLayout';
+
 export default {
   name: 'App',
   components: {
-    Nav
+    MainLayout, AuthLayout,
+  },
+  computed: {
+    layout() {
+      return this.$route.meta?.layout  || 'main-layout'
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #4b0170;
-  background: #ffffffa4;
-  padding: 100px;
-}
 
 </style>
