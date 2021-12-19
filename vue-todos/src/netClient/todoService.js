@@ -38,3 +38,21 @@ export async function patchTodo({id, isCompleted}) {
         throw error;
     }
 }
+
+export async function deleteTodo({id}) {
+    try {
+        const response = await http.delete('/todos/' + id);
+        return response?.data ?? {};
+    } catch (error) {
+        console.error({error});
+    }
+}
+
+export async function deleteAllTodo() {
+    try {
+        const response = await http.delete('/todos');
+        return response.data;
+    } catch (error) {
+        console.error({error});
+    }
+}

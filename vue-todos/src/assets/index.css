@@ -107,13 +107,14 @@ font-family: Avenir, Helvetica, Arial, sans-serif;
 
 .create-todo input {
   border: 1px solid #FFFFFF;
-  padding: 12px 230px;
-  font-size: 12px;
+  padding: 12px 150px;
+  font-size: 15px;
   border-radius: 20px;
+  text-align: center;
 }
 
 .create-todo button {
-      padding: 10px 30px;
+      padding: 10px 20px;
       background: #232B2B;
       color: #E3AE57;
       font-size: 18px;
@@ -160,10 +161,12 @@ font-family: Avenir, Helvetica, Arial, sans-serif;
   }
 
   .todo-item {
-    display: flex;
-    display: inline-grid;
-    grid-auto-flow: column;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
   }
+
   .separator {
     width: 100%;
   }
@@ -171,15 +174,17 @@ font-family: Avenir, Helvetica, Arial, sans-serif;
   ul {
       margin: 0;
       padding: 0;
+      width: 100%;
   }
 
   li {
       background: #B94629;
-      margin: 10px;
+      margin: 10px auto 10px;
       font-size: 14pt;
       border-radius: 8px;
       list-style-type: none;
       box-shadow: 0 0 4px black;
+      width: 100%;
   }
 
 
@@ -231,6 +236,13 @@ font-family: Avenir, Helvetica, Arial, sans-serif;
   .todo-item .title {
     font-size: 22px;
     font-weight: 600;
+    margin: 10px;
+  }
+
+  .todo-item .description {
+    font-size: 15px;
+    font-weight: 600;
+    margin: auto;
   }
 
   .todo-item .checkbox {
@@ -245,10 +257,10 @@ font-family: Avenir, Helvetica, Arial, sans-serif;
     cursor: pointer;
     width: 26px;
     height: 26px;
-    background: red;
-    color: white;
+    background: #232B2B;
+    color: #E3AE57;
     border-radius: 2px;
-    margin: auto;
+    margin: 10px;
     font-size: 20px;
     font-weight: 700;
   }

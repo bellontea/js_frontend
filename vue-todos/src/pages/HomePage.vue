@@ -1,45 +1,44 @@
 <template>
     <div class="home-page base-page">
-        <CreateTodo @todo-created="onTodoCreated"/>
+        <CreateTodo 
+        @todo-created="onTodoCreated"
+        @fetch="fetchTodoList"/>
         <div class="separator"><hr/></div>
-            <ul class="todo-list">
-                <li 
+            <ul> 
+                <TodoItem 
+                    @fetch="fetchTodoList"
                     v-for="todoItem in todoList" 
                     :key="todoItem.id"
                     class="todo-item"
-                    :class="{ done: todoItem.isCompleted }"
-                >
-                    <div class="title">
-                        {{ todoItem.title }}
-                    </div>
-                    <div class="actions">
-                        <input 
-                            type="checkbox" 
-                            class="checkbox"
-                            :checked="todoItem.isCompleted" 
-                            @input="onCheckBoxInput(todoItem.id, todoItem.isCompleted)"
-                        />
-                        <button>x</button>
-                    </div>
-                </li>
+                    :title="todoItem.title"
+                    :id="todoItem.id"
+                    :isCompleted="todoItem.isCompleted"
+                />
             </ul>
     </div>
 </template>
 
 <script>
 import CreateTodo from '@/components/CreateTodo';
-import { fetchTodoList, patchTodo } from '@/netClient/todoService';
+import TodoItem from '@/components/TodoItem';
+import { fetchTodoList } from '@/netClient/todoService';
 
 export default {
     name: 'HomePage',
     components : {
-        CreateTodo
+        CreateTodo, TodoItem
     },
     data: () => ({
         todoList: [],
     }),
     created() {
         this.fetchTodoList();
+    },
+
+    props: {
+        id: String,
+        title: String,
+        isCompleted: Boolean
     },
     methods: {
         onTodoCreated(data) {
@@ -52,14 +51,6 @@ export default {
                 console.error({ error })
             }
         },
-        async onCheckBoxInput(id, isCompleted) {
-            try {
-                await patchTodo({ id, isCompleted: !isCompleted });
-                this.fetchTodoList();   // fix
-            } catch (error) {
-                console.error({ error });
-            }
-        }
     }
 };
 </script>

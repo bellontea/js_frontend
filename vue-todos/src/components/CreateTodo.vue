@@ -2,11 +2,12 @@
     <section class="create-todo">
         <input v-model="name" placeholder="Название дела" />
         <button @click="onCreateTodoClicked">Создать</button>
+        <button @click="deleteAllTodo">Удалить</button>
     </section>
 </template>
 
 <script>
-import { createTodo } from '@/netClient/todoService';
+import { createTodo, deleteAllTodo } from '@/netClient/todoService';
 
 export default {
 	name: 'CreateTodo',
@@ -25,6 +26,14 @@ export default {
                 console.error({ error })
             }
         },
+        async deleteAllTodo() {
+            try {
+                await deleteAllTodo()
+                this.$emit('fetch')
+            } catch (error) {
+                console.error({ error })
+            }
+        }
   	}
 }
 </script>
