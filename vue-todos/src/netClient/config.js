@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "../router";
 
 const netClient = axios.create({
     baseURL: 'http://localhost:3000/api',
@@ -18,6 +19,19 @@ netClient.interceptors.request.use(
     },
     (error) => {
         console.error({ error })
+        return Promise.reject(error)
+    }
+)
+
+netClient.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        if (error.response.status === 401) {
+            localStorage.removeItem('accessToken');
+            router.push('/login');
+        }
         return Promise.reject(error)
     }
 )
